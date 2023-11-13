@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $host = 'localhost'; // 데이터베이스 호스트
 $user = 'root'; // 데이터베이스 사용자 이름
 $password = '23d141531!'; // 데이터베이스 비밀번호
@@ -12,20 +13,21 @@ if ($conn->connect_error) {
     die('MySQL 연결 실패: ' . $conn->connect_error);
 }
 
-// POST 데이터 가져오기
-$id = $_POST['id'];
-$pwd = $_POST['pwd'];
+// 현재 로그인된 사용자의 아이디 가져오기
+if (isset($_SESSION['user_id'])) {
+    $loggedInUserID = $_SESSION['user_id'];
 
-// 입력된 아이디와 비밀번호를 데이터베이스와 비교
-$sql = "SELECT * FROM user_table WHERE user_id = '$id' AND user_pw = '$pwd'";
-$result = $conn->query($sql);
+    $sql = "SELECT name FROM user_table WHERE user_id = '$loggedInUserID'";
+    $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    $_SESSION['user_id'] = $id;
-
-    header("Location: mainPage(login).html");
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo $row['name'];
+    } else {
+        echo "사용자를 찾을 수 없습니다.";
+    }
 } else {
-    echo "아이디 또는 비밀번호가 일치하지 않습니다.";
+    echo "로그인이 필요합니다.";
 }
 
 // MySQL 연결 종료

@@ -2,11 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/493cc16663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="mainPage(login).css">
     <title>Title</title>
 </head>
 <body>
-
+<div class="sub">
+    <i class="bell fa-regular fa-bell fa-xl"></i>
+    <input type="button" id="logout" value="로그아웃">
+    <input type="button" id="mypage" value="마이페이지">
+</div>
+<div class="nickname">
+</div>
+<div class="mainBox">
+    <select class="select">
+        <option value="" selected disabled hidden>지역을 선택해주세요</option>
+    </select>
+    <input type="text" id="search" placeholder="검색어">
+    <input type="text" id="min" placeholder="최소 가격"> ~
+    <input type="text" id="max" placeholder="최대 가격">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="button" id="post" value="게시글 작성">
+</div>
 <script type="text/javascript" src="mainPage(login).js"></script>
 </body>
 </html>
