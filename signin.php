@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost'; // 데이터베이스 호스트
 $user = 'root'; // 데이터베이스 사용자 이름
-$password = '23d141531!'; // 데이터베이스 비밀번호
+$password = '1234'; // 데이터베이스 비밀번호
 $database = 'user_db'; // 데이터베이스 이름
 
 $conn = new mysqli($host, $user, $password, $database);
