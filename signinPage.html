@@ -11,13 +11,15 @@
         <div id = "box1">
             <h1>회원가입</h1>
         </div>
-        <form action="signin.php" method="post" id = "box2">
+        <form action="signin.php" method="post" id = "box2" enctype="multipart/form-data">
             <input type = "text" id = "id" name = "id" placeholder = "아이디"><br><br>
             <input type = "text" id  = "pwd" name = "pwd" placeholder = "비밀번호"><br><br>
             <input type = "text" id  = "local" name = "local" placeholder = "활동지역"><br><br>
-            <input type = "text" id  = "nickname" name = "nickname" placeholder = "닉네임"><br><br><br><br>
+            <input type = "text" id  = "nickname" name = "nickname" placeholder = "닉네임"><br><br>
+            프로필 사진 : <input type = "file" id  = "image" name = "image"><br><br><br><br>
             <input type = "submit" id = "submit" value = "OK">
         </form>
     </div>
+<script type="text/javascript" src="signinPage.js"></script>
 </body>
 </html>
