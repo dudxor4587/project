@@ -17,12 +17,16 @@ if ($conn->connect_error) {
 if (isset($_SESSION['user_id'])) {
     $loggedInUserID = $_SESSION['user_id'];
 
-    $sql = "SELECT name FROM user_table WHERE user_id = '$loggedInUserID'";
+    $sql = "SELECT name, user_image FROM user_table WHERE user_id = '$loggedInUserID'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
-        echo $row['name'];
+        $response = array(
+            'nickname' => $row['name'],
+            'image' => $row['user_image']
+        );
+        echo json_encode($response);
     } else {
         echo "사용자를 찾을 수 없습니다.";
     }
