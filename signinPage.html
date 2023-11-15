@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <link rel="stylesheet" href="signinPage.css">
+    <script src="https://kit.fontawesome.com/6430ee2c3b.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class = "container-fluid">
-        <div id = "box1">
-            <h1>회원가입</h1>
-        </div>
-        <form action="signin.php" method="post" id = "box2" enctype="multipart/form-data">
-            <input type = "text" id = "id" name = "id" placeholder = "아이디"><br><br>
-            <input type = "text" id  = "pwd" name = "pwd" placeholder = "비밀번호"><br><br>
-            <input type = "text" id  = "local" name = "local" placeholder = "활동지역"><br><br>
-            <input type = "text" id  = "nickname" name = "nickname" placeholder = "닉네임"><br><br>
-            프로필 사진 : <input type = "file" id  = "image" name = "image"><br><br><br><br>
-            <input type = "submit" id = "submit" value = "OK">
-        </form>
+    <div class="title-box">
+        <h2><i class="fa-solid fa-store"></i> Market Hub</h2>
     </div>
-<script type="text/javascript" src="signinPage.js"></script>
+    <div class="main-box">
+        <div class="welcome-box">
+            <div class="welcome_text">
+                <span>nice to see you</span><br>
+                <span>Welcome!</span><br><br>
+                <i class="fa-solid fa-store"></i><br>
+                <span class="description">This is our market for everyone<br>Anyone can BUY & SELL their stuff</span>
+            </div>
+        </div>
+        <div class="login-box">
+            <div id="box1">
+                <h1>Make your account!</h1>
+            </div>
+            <form action="signin.php" method="post" id="box2" enctype="multipart/form-data">
+                <i class="fa-solid fa-user"></i>
+                <input required type="text" id="id" name="id" placeholder="ID" minlength="8"><br>
+                <i class="fa-solid fa-lock"></i>
+                <input required type="text" id="pwd" name="pwd" placeholder="PASSWORD" minlength="8"><br>
+                <i class="fa-solid fa-house-user"></i>
+                <input type="text" id="local" name="local" placeholder="REGION"><br>
+                <i class="fa-solid fa-signature"></i>
+                <input type="text" id="nickname" name="nickname" placeholder="NICKNAME"><br><br>
+
+                <div class="filebox">
+                    <i class="fa-regular fa-images"></i>
+                    <label for="image">
+                        <div class="btn-upload">Upload file</div>
+                    </label>
+                    <input type="file" id="image" name="image">
+                    <br><br><br>
+                </div>
+                <input type="submit" id="submit" value="OK">
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="signinPage.js"></script>
+
 </body>
+
 </html>
