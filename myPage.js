@@ -18,6 +18,28 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     };
     xhr.send();
+
+    // AJAX 요청으로 사용자의 키워드 가져오기
+    var xhrKeywords = new XMLHttpRequest();
+    xhrKeywords.open('GET', 'getKeywords.php', true);
+    xhrKeywords.onreadystatechange = function() {
+        if (xhrKeywords.readyState === 4 && xhrKeywords.status === 200) {
+            var responseKeywords = JSON.parse(xhrKeywords.responseText);
+            if (responseKeywords.success) {
+                var keywordList = document.querySelector(".keywordbox");
+                for (var i = 0; i < responseKeywords.keywords.length; i++) {
+                    var keyword = responseKeywords.keywords[i];
+                    var keywordElement = document.createElement("div");
+                    keywordElement.classList.add("keyword-list");
+                    keywordElement.textContent = "#" + keyword;
+                    keywordList.appendChild(keywordElement);
+                }
+            } else {
+                alert("키워드 가져오기에 실패했습니다.");
+            }
+        }
+    };
+    xhrKeywords.send();
 });
 
 document.getElementById("logout").addEventListener("click", function(){
@@ -25,4 +47,19 @@ document.getElementById("logout").addEventListener("click", function(){
 });
 document.getElementById("mainpage").addEventListener("click", function(){
     window.location.href = "mainPage(login).html";
+});
+
+document.getElementById("addbtn").addEventListener("click", function(){
+    var keywordInput = document.getElementById("keyword").value;
+    if (keywordInput.trim() === "") {
+        alert("키워드를 입력해주세요.");
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'addKeyword.php', true); // saveKeyword.php는 키워드를 데이터베이스에 저장하는 서버 스크립트 파일입니다.
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('keyword=' + encodeURIComponent(keywordInput));
+    alert("추가가 완료되었습니다.");
+    location.reload();
 });
