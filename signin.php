@@ -15,21 +15,30 @@ $id = $_POST['id'];
 $pwd = $_POST['pwd'];
 $local = $_POST['local'];
 $nickname = $_POST['nickname'];
+
+// 아이디 중복 체크
+$checkQuery = "SELECT * FROM user_table WHERE user_id = '$id'";
+$result = $conn->query($checkQuery);
+if ($result->num_rows > 0) {
+    echo "duplicate";
+    exit;  // 스크립트 종료
+}
+
+// 이미지 업로드
 if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
-    $id = $_POST['id'];
     $uploadDir = 'userImages/';
     $uploadFile = $uploadDir . basename($id . '.png');
     move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+    $sql = "INSERT INTO user_table (user_id, user_pw, location, name, user_image) VALUES ('$id', '$pwd', '$local', '$nickname', '$id.png')";
 } else {
-    echo "파일 업로드에 오류가 발생했습니다: " . $_FILES['image']['error'];
+    $sql = "INSERT INTO user_table (user_id, user_pw, location, name, user_image) VALUES ('$id', '$pwd', '$local', '$nickname', '기본프로필.png')";
 }
-// SQL 쿼리 실행하여 데이터베이스에 저장
-$sql = "INSERT INTO user_table (user_id, user_pw, location, name, user_image) VALUES ('$id', '$pwd', '$local', '$nickname', '$id.png')";
 
 if ($conn->query($sql) === TRUE) {
-    
+    echo "success";
 } else {
     echo "오류: " . $sql . "<br>" . $conn->error;
 }
+
 $conn->close();
 ?>
