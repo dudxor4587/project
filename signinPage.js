@@ -40,3 +40,25 @@ document.getElementById("submit").addEventListener("click", function(event){
     })
     .catch(error => console.error('Error:', error));
 });
+
+
+function previewImage() {
+    var input = document.getElementById('image');
+    var preview = document.getElementById('preview');
+    var uploadName = document.querySelector('.upload-name');
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+            uploadName.value = input.files[0].name;
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        preview.style.display = 'none';
+        uploadName.value = 'file';
+    }
+}
