@@ -14,7 +14,7 @@ $images = $_FILES['image'];
 
 // 공백 제거
 $titleWithoutSpace = str_replace(' ', '', $title);
-
+$userId = $_SESSION['user_id'];
 // 데이터베이스에 판매글 저장
 try {
     $conn = new mysqli($host, $user, $pass, $db);
@@ -58,7 +58,7 @@ try {
         }
 
         // keyword_table에서 user_keyword와 비교하여 제목이 키워드를 포함하는지 확인
-        $keywordSql = "SELECT user_id, user_keyword FROM keyword_table WHERE '$titleWithoutSpace' LIKE CONCAT('%', user_keyword, '%')";
+        $keywordSql = "SELECT user_id, user_keyword FROM keyword_table WHERE '$titleWithoutSpace' LIKE CONCAT('%', user_keyword, '%') AND user_id != '$userId'";
         $keywordResult = $conn->query($keywordSql);
         if ($keywordResult->num_rows > 0) {
             while ($keywordRow = $keywordResult->fetch_assoc()) {

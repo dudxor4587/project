@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+}
+table, th, td {
+    border : 1px solid black;
+
+}
+.sub {
+    text-align: right;
+    margin-top:20px;
+    position: fixed;
+    top:0px;
+    right: 23px;
+}
+#logout, #mypage {
+    border:none;
+    background-color: white;
+    font-weight: bolder;
+    font-size:15px;
+}
+#logout:hover, #mypage:hover {
+    background-color: lightgrey;
+}

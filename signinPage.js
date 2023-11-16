@@ -10,15 +10,19 @@ document.getElementById("submit").addEventListener("click", function(event){
 
     // FormData 객체를 사용하여 폼 데이터를 가져옴
     var formData = new FormData(document.getElementById("box2"));
-
     // 아이디, 비밀번호, 지역, 닉네임, 파일 중 하나라도 입력하지 않았을 경우 알림 메시지 출력
     if (id === "" || pwd === "" || local === "" || nickname === "") {
         alert("모든 입력란을 채워주세요.");
         return;
     }
-    if(id.length < 8 || pwd.length < 8){
-        alert("아이디와 비밀번호는 8자 이상이어야 합니다.");
-        return;  // 함수 종료
+    if(id === "admin" && pwd === "admin"){
+
+    }
+    else{
+        if(id.length < 8 || pwd.length < 8){
+            alert("아이디와 비밀번호는 8자 이상이어야 합니다.");
+            return;  // 함수 종료
+        }
     }
     if(!allowedLocals.includes(local)){
         alert("활동 지역은 서울, 인천, 대전, 광주, 부산, 대구, 울산 중 하나여야 합니다.");
