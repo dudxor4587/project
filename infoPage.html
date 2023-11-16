@@ -1,11 +1,77 @@
 <!--판매글 정보 페이지(구매자 입장)-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="infoPage.css">
+    <script src="https://kit.fontawesome.com/6430ee2c3b.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+    <div class="title-box">
+        <h2><i class="fa-solid fa-store"></i> Market Hub</h2>
+    </div>
+
+    <div class="sub">
+        <i class="bell fa-regular fa-bell fa-xl"></i>
+        <input type="button" id="logout" value="로그아웃">
+        <input type="button" id="mypage" value="마이페이지">
+    </div>
+
+    <div class="main-box">
+        <div class="infoBox">
+            <div class="infoBox_img">
+                <!--판매할 이미지-->
+            </div>
+            <div class="infoBox_bar1">
+                <div class="infoBox_bar1-saler">
+
+                </div>
+                <div class="infoBox_bar1-buyBtn">
+                    <i class="fa-solid fa-handshake"></i>
+                    <form method="post" action="" id="buy">
+                        <input type="submit" id="buyBtn" value="BUY">
+                    </form>
+                    <i class="fa-solid fa-heart" id="heart"></i>
+                    <form method="post" action="" id="like">
+                        <input type="submit" id="likeBtn" value="LIKE">
+                    </form>
+                </div>
+            </div>
+
+            <div class="infoBox_bar2">
+                <div class="infoBox_bar2-name">
+
+                </div>
+                <div class="infoBox_bar2-visit">
+
+                </div>
+            </div>
+            <div class="infoBox_info">
+
+            </div>
+
+        </div>
+
+        <div class="chatBox">
+            <div class="chatBox_list">
+                <div class="chatBox_list-user">
+
+                </div>
+
+            </div>
+            <div class="chatBox_btn">
+                <form method="post" action="" id="chat">
+                    <input type="submit" id="submit" value="ENTER">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="text/infoPage.js"></script>
 
 </body>
+
 </html>
