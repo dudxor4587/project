@@ -38,3 +38,22 @@
     width:150px;
     -webkit-appearance:none;
 }
+.product-image {
+    margin:30px 30px auto 30px;
+    width: 150px;
+    height: 180px;
+    border-radius: 20px;
+
+}
+.product_box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.product-title {
+    margin: 10px 30px auto 30px;
+}
+.product-price {
+    margin: auto 30px 30px 30px;
+    font-weight: bolder;
+}

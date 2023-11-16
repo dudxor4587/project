@@ -1,6 +1,9 @@
 .sub {
     text-align: right;
     margin-top:20px;
+    position: fixed;
+    top:0px;
+    right: 23px;
 }
 #logout, #mainpage {
     border:none;
@@ -11,7 +14,7 @@
 #logout:hover, #mainpage:hover {
     background-color: lightgrey;
 }
-.bell, #logout{
+#bell, #logout{
     margin-right: 30px;
 }
 .row{
@@ -45,9 +48,10 @@
 p{
     font-size:25px;
 }
-.interest, .sale{
+.interest, .sale, .purchase {
     width:1000px;
     border-bottom:2px solid lightgrey;
+    min-height: 200px;
 }
 .mybox, .itembox{
     padding:15px;
@@ -57,4 +61,51 @@ p{
     width: 50px;
     height: 50px;
 
+}
+.sale-image {
+    margin:30px 30px auto 30px;
+    width: 100px;
+    height: 130px;
+    border-radius: 20px;
+}
+.sale {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+}
+.sale-title {
+    margin: 10px 30px auto 30px;
+}
+.sale-price {
+    margin: auto 30px 30px 30px;
+    font-weight: bolder;
+}
+.saleBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.sale-done {
+    min-height: 200px;
+}
+#alarm {
+    border: 2px ridge;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 45px;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(227, 221, 221);
+    display: none;
+    padding:20px;
+}
+.keyword, .keyword2 {
+    border-bottom:1px solid grey;
+    margin-bottom:10px;
+}
+.keyword:hover {
+    background-color: lightgrey;
 }

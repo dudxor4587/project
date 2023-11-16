@@ -7,9 +7,11 @@
     <title>Title</title>
 </head>
 <body>
+<div id="alarm" style="display:none;">
+</div>
 <div class="containerbox">
     <div class="sub">
-        <i class="bell fa-regular fa-bell fa-xl"></i>
+        <i class="fa-regular fa-bell fa-xl" id="bell"></i>
         <input type="button" id="logout" value="로그아웃">
         <input type="button" id="mainpage" value="메인페이지">
     </div>
@@ -33,10 +35,19 @@
                 <p>[관심 내역]</p>
             </div>
             <div class="sale">
-                <p>[판매 내역]</p>
+                <p>[판매중인 내역]</p>
+                <div class="saleBox">
+                    
+                </div>
             </div>
             <div class="purchase">
                 <p>[구매 내역]</p>
+            </div>
+            <div class="sale-done">
+                <p>[판매완료 내역]</p>
+                <div class="saledoneBox">
+                    
+                </div>
             </div>
         </div>
     </div>

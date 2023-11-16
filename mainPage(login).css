@@ -1,6 +1,9 @@
 .sub {
     text-align: right;
     margin-top:20px;
+    position: fixed;
+    top:0px;
+    right: 23px;
 }
 #logout, #mypage {
     border:none;
@@ -11,7 +14,7 @@
 #logout:hover, #mypage:hover {
     background-color: lightgrey;
 }
-.bell, #logout{
+#bell, #logout{
     margin-right: 30px;
 }
 .mainBox {
@@ -50,4 +53,44 @@
     margin-left:50px;
     font-size:40px;
     font-weight: bolder;
+}
+.product-image {
+    margin:30px 30px auto 30px;
+    width: 150px;
+    height: 180px;
+    border-radius: 20px;
+
+}
+.product_box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.product-title {
+    margin: 10px 30px auto 30px;
+}
+.product-price {
+    margin: auto 30px 30px 30px;
+    font-weight: bolder;
+}
+#alarm {
+    border: 2px ridge;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 45px;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(227, 221, 221);
+    display: none;
+    padding:20px;
+  }
+.keyword, .keyword2 {
+    border-bottom:1px solid grey;
+    margin-bottom:10px;
+}
+.keyword:hover {
+    background-color: lightgrey;
 }
