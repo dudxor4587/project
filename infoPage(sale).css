@@ -83,7 +83,7 @@ h2{
 
 .chatBox_list{
     width: 500px;
-    height: 465px;
+    height: 350px;
     background-color: rgba(0, 0, 0, 0.093);
     margin-top: 10px;
     margin-bottom: 8px;
@@ -176,6 +176,17 @@ h2{
     color:white;
     margin-right: -7px;
     font-size: 15px;
+}
+
+#textarea{
+    width: 490px;
+    height: 80px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px;
 }
 
 #sellBtn{

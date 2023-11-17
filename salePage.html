@@ -1,24 +1,60 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>물건 판매 등록</title>
     <link rel="stylesheet" href="salePage.css">
+    <script src="https://kit.fontawesome.com/493cc16663.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class = "container-fluid">
-        <div id = "box1">
-            <h1>물건 판매글 등록하기</h1>
-        </div>
-        <form action="sale.php" method="post" id = "box2" enctype="multipart/form-data">
-            <input type = "text" id = "title" name = "title" placeholder = "제목을 입력해주세요"><br><br>
-            판매 가격: <input type = "text" id  = "price" name = "price">(원)<br><br>
-            <textarea id  = "detail" name = "detail" placeholder = "제품에 대한 설명을 작성해주세요"></textarea><br><br>
-            제품 사진 : <input type = "file" id  = "image" name = "image[]" multiple><br><br><br><br>
-            <input type = "submit" id = "submit" value = "OK">
-        </form>
+
+    <div class="title-box">
+        <h2><i class="fa-solid fa-store"></i> Market Hub</h2>
     </div>
-<script type="text/javascript" src="salePage.js"></script>
+
+    <div class="sub">
+        <i class="bell fa-regular fa-bell fa-xl"></i>
+        <input type="button" id="logout" value="로그아웃">
+        <input type="button" id="mypage" value="마이페이지">
+    </div>
+
+    <div class="container-fluid">
+        <div class="main-box">
+            <div class="register-box">
+                <div id="box1">
+                    <h1>Just Sell It!</h1>
+                </div>
+
+                <h3>판매하실 물건의 정보를 입력해주세요</h3>
+                <br>
+                <form action="sale.php" method="post" id="box2" enctype="multipart/form-data">
+                    <input type="text" id="title" name="title" placeholder="제목을 입력해주세요"><br>
+                    판매 가격: <input type="text" id="price" name="price"> (원)<br><br>
+                </form>
+                <i class="fa-solid fa-gifts"></i>
+            </div>
+
+            <div class="info-box">
+                <form action="sale.php" method="post" id="box2" enctype="multipart/form-data">
+                    <textarea id="detail" name="detail" placeholder="제품에 대한 설명을 작성해주세요"></textarea>
+                    <div class="info-box_pic">
+                        <label for="image">
+                            <div class="btn-upload">Upload Picture : </div>
+                        </label>
+                        <input type="file" id="image" name="image[]" multiple>
+                    </div>
+                    <br>
+                    <input type="submit" id="submit" value="OK">
+            </div>
+
+            </form>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="salePage.js"></script>
 </body>
+
 </html>
