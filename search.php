@@ -19,7 +19,7 @@ try {
     $location = $_GET['location'];
 
     // 상품 정보와 사용자 위치를 가져오는 SQL 쿼리를 작성합니다.
-    $sql = "SELECT st.name, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.id ORDER BY it.id ASC LIMIT 1) AS product_image, st.price, ut.location
+    $sql = "SELECT st.name, st.ID, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.id ORDER BY it.id ASC LIMIT 1) AS product_image, st.price, ut.location
             FROM sale_table st
             INNER JOIN user_table ut ON st.user_id = ut.user_id
             WHERE 1=1";
@@ -63,6 +63,7 @@ try {
         $products = array();
         while ($row = $result->fetch_assoc()) {
             $product = array(
+                'ID' => $row['ID'],
                 'name' => $row['name'],
                 'image' => $row['product_image'],
                 'price' => $row['price'],

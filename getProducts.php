@@ -13,7 +13,7 @@ try {
     }
 
     // 상품 정보를 가져오는 SQL 쿼리를 작성합니다.
-    $sql = "SELECT st.name, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.id ORDER BY it.id ASC LIMIT 1) AS product_image, st.price FROM sale_table st";
+    $sql = "SELECT st.ID, st.name, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.ID ORDER BY it.ID ASC LIMIT 1) AS product_image, st.price FROM sale_table st";
 
     // SQL 쿼리 실행
     $result = $conn->query($sql);
@@ -21,6 +21,7 @@ try {
         $products = array();
         while ($row = $result->fetch_assoc()) {
             $product = array(
+                'ID' => $row['ID'],
                 'name' => $row['name'],
                 'image' => $row['product_image'],
                 'price' => $row['price']
