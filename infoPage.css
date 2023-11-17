@@ -224,7 +224,21 @@ h2{
     display: flex;
     justify-content: space-between;
 }
+#login, #signin {
+    border:none;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size:15px;
+    color: rgb(255, 81, 0);
+}
+#login:hover, #signin:hover {
+    box-shadow: 0px 0px 0px 5px rgba(255, 166, 0, 0.818);
+    transition: box-shadow 0.3s ease-in-out;
+}
 
+#login{
+    margin-right: 30px;
+}
 
 #like input[type='submit']{
     display: flex;
@@ -366,4 +380,25 @@ h2{
 .contentBox{
     margin-top:4px;
     overflow: auto;
+}
+#alarm {
+    border: 2px ridge;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 45px;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(227, 221, 221);
+    display: none;
+    padding:20px;
+  }
+  .keyword, .keyword2 {
+    border-bottom:1px solid grey;
+    margin-bottom:10px;
+}
+.keyword:hover {
+    background-color: lightgrey;
 }
