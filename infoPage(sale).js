@@ -8,6 +8,10 @@ document.getElementById("mypage").addEventListener("click", function(){
     window.location.href = "myPage.html";
 });
 
+document.getElementById("sellBtn").addEventListener("click", function(){
+    window.location.href = "confirmPage.html";
+});
+
 // 페이지 로드 시 데이터 가져오기
 document.addEventListener("DOMContentLoaded", function() {
     // AJAX 요청을 사용하여 PHP 파일에서 데이터 가져오기
