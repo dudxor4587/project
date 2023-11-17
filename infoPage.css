@@ -6,6 +6,13 @@ body {
     background-image: linear-gradient(0deg, rgba(255, 170, 0, 0.455), rgba(255, 255, 255, 0.718));
 }
 
+.main-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
 .title-box{
     position: absolute;
     top: -15px;
