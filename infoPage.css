@@ -291,3 +291,47 @@ h2{
     left: 30px;
 }
 
+.comment-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    border:1px solid grey;
+}
+.chatBox_list{
+    padding:30px;
+}
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom:20px;
+    border-bottom: 1px groove lightgrey;
+    padding-bottom: 10px;
+}
+.comment-name {
+    display: flex;
+    flex-direction: row;
+}
+.comment-container2 {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.comment-container2 .comment-name {
+    font-size:12px
+}
+.comment-date {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.infoBox1 {
+    display: flex;
+    flex-direction: row;
+}
+.infoImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    border:1px solid grey;
+}

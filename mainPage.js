@@ -113,12 +113,33 @@ document.getElementById("post").addEventListener("click", function(){
     alert("로그인 후 이용 가능합니다.");
 });
 
-document.querySelector('.product_box').addEventListener("click", function(event){
+document.querySelector('.product_box').addEventListener("click", function(event) {
     var clickedElement = event.target.closest('.product-container');
     if (clickedElement) {
-        window.location.href = "infoPage.html";
+      var productId = clickedElement.id;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+              // user_id와 ID가 일치하는 경우
+              window.location.href = "infoPage(sale).html";
+            } else {
+              // user_id와 ID가 일치하지 않는 경우
+              window.location.href = "infoPage.html";
+            }
+          } else {
+            console.error("AJAX request failed with status: " + xhr.status);
+          }
+        }
+      };
+  
+      xhr.open("POST", "check_sale_info.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send("id=" + productId);
     }
-});
+  });
 
 document.getElementById("login").addEventListener("click", function(){
     window.location.href = "loginPage.html";
