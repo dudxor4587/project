@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
     // AJAX 요청으로 상품 정보 가져오기
     var xhrProducts = new XMLHttpRequest();
-    xhrProducts.open('GET', 'productView.php', true);
+    xhrProducts.open('GET', 'getProducts.php', true);
     xhrProducts.onreadystatechange = function() {
         if (xhrProducts.readyState === 4 && xhrProducts.status === 200) {
             var responseProducts = JSON.parse(xhrProducts.responseText);
@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                     // 상품 컨테이너에 가격 요소를 추가합니다.
                     productContainer.appendChild(productPrice);
+                    productContainer.setAttribute("id", product.ID);
 
                     // 상품 컨테이너를 상품 목록에 추가합니다.
                     productBox.appendChild(productContainer);
@@ -91,6 +92,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                         // 상품 컨테이너에 가격 요소를 추가합니다.
                         productContainer.appendChild(productPrice);
+                        productContainer.setAttribute("id", product.ID);
 
                         // 상품 컨테이너를 상품 목록에 추가합니다.
                         productBox.appendChild(productContainer);

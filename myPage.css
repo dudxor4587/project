@@ -62,25 +62,26 @@ p{
     height: 50px;
 
 }
-.sale-image {
+.sale-image, .interest-image {
     margin:30px 30px auto 30px;
     width: 100px;
     height: 130px;
     border-radius: 20px;
+    background-position: center;
 }
-.sale {
+.sale, .intesrest {
     display: flex;
     flex-direction: column;
     min-height: 150px;
 }
-.sale-title {
+.sale-title, .interest-title {
     margin: 10px 30px auto 30px;
 }
-.sale-price {
+.sale-price, .interest-price {
     margin: auto 30px 30px 30px;
     font-weight: bolder;
 }
-.saleBox {
+.saleBox, .interestBox {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

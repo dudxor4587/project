@@ -85,6 +85,50 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     };
     xhrSales.send();
+        // AJAX 요청으로 관심 내역 가져오기
+    var xhrInterest = new XMLHttpRequest();
+    xhrInterest.open('GET', 'getInterest.php', true);
+    xhrInterest.onreadystatechange = function() {
+        if (xhrInterest.readyState === 4 && xhrInterest.status === 200) {
+            var responseInterest = JSON.parse(xhrInterest.responseText);
+            if (responseInterest.success) {
+                var interestList = document.querySelector('.interestBox');
+                for (var i = 0; i < responseInterest.interests.length; i++) {
+                    var interest = responseInterest.interests[i];
+                    // 상품 이미지를 가져와서 요소를 생성합니다.
+                    var interestImage = document.createElement('div');
+                    interestImage.classList.add('interest-image');
+                    interestImage.style.backgroundImage = 'url(productImages/' + interest.image + ')';
+                    interestImage.style.backgroundSize = 'cover';
+
+                    // 상품 제목을 가져와서 요소를 생성합니다.
+                    var interestTitle = document.createElement('div');
+                    interestTitle.classList.add('interest-title');
+                    interestTitle.textContent = interest.name;
+
+                    // 상품 이미지와 제목을 감싸는 컨테이너 요소를 생성합니다.
+                    var interestContainer = document.createElement('div');
+                    interestContainer.classList.add('interest-container');
+                    interestContainer.appendChild(interestImage);
+                    interestContainer.appendChild(interestTitle);
+                    // 상품 가격을 가져와서 요소를 생성합니다.
+                    var interestPrice = document.createElement('div');
+                    interestPrice.classList.add('interest-price');
+                    interestPrice.textContent = interest.price + "원";
+
+                    // 상품 컨테이너에 가격 요소를 추가합니다.
+                    interestContainer.appendChild(interestPrice);
+
+                    // 상품 컨테이너를 관심 내역 목록에 추가합니다.
+                    interestList.appendChild(interestContainer);
+                }
+            } else {
+                alert("관심 내역 가져오기에 실패했습니다.");
+            }
+        }
+    };
+    xhrInterest.send();
+
 });
 function updateKeywordCheck(keywordId) {
     // AJAX 요청으로 키워드의 check 값을 1로 업데이트하는 함수
