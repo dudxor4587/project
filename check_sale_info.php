@@ -6,10 +6,20 @@ $db = 'user_db';
 $user = 'root';
 $pass = '1234';
 
-// 클릭한 객체의 id 값과 로그인된 user_id 값 가져오기
+// 클릭한 객체의 id 값 가져오기
 $id = $_POST['id'];
-$user_id = $_SESSION['user_id'];
 $_SESSION['ID'] = $id;
+
+if (!isset($_SESSION['user_id'])) {
+    // 세션에 user_id가 없는 경우
+
+    $response = array('success' => false);
+    header('Content-Type: application/json'); // JSON 데이터를 반환한다는 헤더 설정
+    echo json_encode($response);
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
 
 try {
     $conn = new mysqli($host, $user, $pass, $db);

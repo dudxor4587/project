@@ -150,9 +150,17 @@ function updateKeywordCheck(keywordId) {
     xhrUpdateCheck.send("keywordId=" + encodeURIComponent(keywordId));
   }
 
-document.getElementById("logout").addEventListener("click", function(){
-    window.location.href = "mainPage.html";
-});
+  document.getElementById("logout").addEventListener("click", function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "logout.php", true);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        // 로그아웃 후 처리
+        window.location.href = "mainPage.html";
+      }
+    };
+    xhr.send();
+  });
 document.getElementById("mainpage").addEventListener("click", function(){
     window.location.href = "mainPage(login).html";
 });

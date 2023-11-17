@@ -2,7 +2,14 @@
 // 세션 시작
 session_start();
 
-// 세션에서 user_id 가져오기
+if (!isset($_SESSION['user_id'])) {
+    // 세션에 user_id가 없는 경우
+
+    $response = array('success' => false);
+    header('Content-Type: application/json'); // JSON 데이터를 반환한다는 헤더 설정
+    echo json_encode($response);
+    exit;
+}
 $user_id = $_SESSION['user_id'];
 
 // POST 데이터에서 게시글 id 가져오기
