@@ -34,7 +34,7 @@ try {
     }
 
     // 현재 시간을 가져옵니다.
-    $date = date('Y/m/d');
+    $date = date('Y/m/d H:i A');
 
     $formattedPrice = number_format($price);
 

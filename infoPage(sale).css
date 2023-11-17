@@ -199,3 +199,48 @@ h2{
     display: flex;
     justify-content: space-between;
 }
+.infoBox_img {
+    display: flex;
+    justify-content: center;
+}
+.infoBox_img .product {
+    margin-top:10px;
+    width: 280px;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#rightButton,
+#leftButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: grey;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.infoBox_img {
+    position: relative;
+    width: 480px;
+    height: 300px;
+    margin-top: 10px;
+    border: 4px solid rgba(128, 128, 128, 0.452);
+    border-radius: 20px;
+}
+
+#rightButton {
+    right: 30px;
+}
+
+#leftButton {
+    left: 30px;
+}
+
+

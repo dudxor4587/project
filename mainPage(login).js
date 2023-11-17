@@ -77,6 +77,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                             // 상품 컨테이너에 가격 요소를 추가합니다.
                             productContainer.appendChild(productPrice);
+                            productContainer.setAttribute("id", product.ID);
 
                             // 상품 컨테이너를 상품 목록에 추가합니다.
                             productBox.appendChild(productContainer);
@@ -140,6 +141,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                         // 상품 컨테이너에 가격 요소를 추가합니다.
                         productContainer.appendChild(productPrice);
+                        productContainer.setAttribute("id", product.ID);
 
                         // 상품 컨테이너를 상품 목록에 추가합니다.
                         productBox.appendChild(productContainer);
@@ -168,12 +170,34 @@ document.getElementById("post").addEventListener("click", function(){
 });
 
 
-document.querySelector('.product_box').addEventListener("click", function(event){
+document.querySelector('.product_box').addEventListener("click", function(event) {
     var clickedElement = event.target.closest('.product-container');
     if (clickedElement) {
-        window.location.href = "infoPage.html";
+      var productId = clickedElement.id;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+              // user_id와 ID가 일치하는 경우
+              window.location.href = "infoPage(sale).html";
+            } else {
+              // user_id와 ID가 일치하지 않는 경우
+              window.location.href = "infoPage.html";
+            }
+          } else {
+            console.error("AJAX request failed with status: " + xhr.status);
+          }
+        }
+      };
+  
+      xhr.open("POST", "check_sale_info.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send("id=" + productId);
     }
-});
+  });
+  
 document.getElementById("bell").addEventListener("click", function(event) {
     var alarmElement = document.getElementById("alarm");
     if (alarmElement.style.display === "none") {
@@ -321,6 +345,7 @@ function formatTimeAgo(minutes) {
   
             // 상품 컨테이너에 가격 요소를 추가합니다.
             productContainer.appendChild(productPrice);
+            productContainer.setAttribute("id", product.ID);
   
             // 상품 컨테이너를 상품 목록에 추가합니다.
             productBox.appendChild(productContainer);
