@@ -90,12 +90,23 @@ h2{
 
 .chatBox_list{
     width: 500px;
-    height: 465px;
+    height: 350px;
     background-color: rgba(0, 0, 0, 0.093);
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 8px;
     border-radius: 10px;    
     border: 4px solid rgba(102, 102, 102, 0.608);
+}
+
+#textarea{
+    width: 490px;
+    height: 80px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px;
 }
 
 #chat input[type='submit']{
