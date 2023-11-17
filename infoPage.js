@@ -8,6 +8,12 @@ document.getElementById("mypage").addEventListener("click", function(){
     window.location.href = "myPage.html";
 });
 
+document.getElementById("buyBtn").addEventListener("click", function(){
+    window.location.href = "requestPage.html";
+});
+
+
+
 // LIKE 버튼 클릭 이벤트
 document.getElementById("like").addEventListener("submit", function(e){
     e.preventDefault();
@@ -106,3 +112,4 @@ document.addEventListener("DOMContentLoaded", function() {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send();
 });
+
