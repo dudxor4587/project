@@ -165,3 +165,6 @@ document.getElementById("bell").addEventListener("click", function(event) {
 document.getElementById("mypage").addEventListener("click", function(){
     window.location.href = "myPage.html";
 });
+document.getElementById("logo").addEventListener("click",function(){
+    window.location.href = "mainPage(login).html";
+  })

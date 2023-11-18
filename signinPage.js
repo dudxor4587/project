@@ -66,3 +66,6 @@ function previewImage() {
         uploadName.value = 'file';
     }
 }
+document.getElementById("logo").addEventListener("click",function(){
+    window.location.href = "mainPage.html";
+  })
