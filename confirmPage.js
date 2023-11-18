@@ -1,3 +1,25 @@
+window.addEventListener('DOMContentLoaded', function() {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+              var response = JSON.parse(xhr.responseText);
+              if (response.success) {
+                  // 상품의 이름을 가져와서 적용
+                  var nameElement = document.querySelector('#product');  // 'product'이라는 id를 가진 HTML 요소가 있다고 가정
+                  nameElement.textContent = response.name;
+              } else {
+                  console.error('Failed to fetch the product data');
+              }
+          } else {
+              console.error('Failed to send the request: ' + xhr.status);
+          }
+      }
+  };
+  xhr.open('GET', 'get_sale_info.php', true); 
+  xhr.send();
+});
+
 document.addEventListener("DOMContentLoaded", function() {
     // AJAX 요청을 사용하여 PHP 파일에서 데이터 가져오기
     var xhr = new XMLHttpRequest();
