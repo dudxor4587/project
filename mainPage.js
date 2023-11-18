@@ -152,3 +152,6 @@ document.getElementById("login").addEventListener("click", function(){
 document.getElementById("signin").addEventListener("click", function(){
     window.location.href = "signinPage.html";
 });
+document.getElementById("logo").addEventListener("click",function(){
+  window.location.href = "mainPage.html";
+})

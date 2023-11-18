@@ -16,6 +16,9 @@ document.getElementById("submit").addEventListener("click", function(event) {
     event.preventDefault(); // 폼 기본 동작 방지
     alert("로그인 후 이용해주세요.");
 });
+document.getElementById("logo").addEventListener("click",function(){
+    window.location.href = "mainPage.html";
+  })
   
 // 페이지 로드 시 데이터 가져오기
 document.addEventListener("DOMContentLoaded", function() {

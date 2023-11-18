@@ -367,7 +367,9 @@ function formatTimeAgo(minutes) {
     xhrSearch.send();
   }
   
-
+document.getElementById("logo").addEventListener("click",function(){
+  window.location.href = "mainPage(login).html";
+})
 
 
 

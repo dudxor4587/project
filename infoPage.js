@@ -305,4 +305,6 @@ document.getElementById("bell").addEventListener("click", function(event) {
     };
     xhrUpdateCheck.send("keywordId=" + encodeURIComponent(keywordId));
   }
-  
+  document.getElementById("logo").addEventListener("click",function(){
+    window.location.href = "mainPage(login).html";
+  })
