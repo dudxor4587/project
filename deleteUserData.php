@@ -1,6 +1,4 @@
 <?php
-// user_table, keyword_table, sale_table, alarm_table, comment_table에서 user_id와 일치하는 데이터를 삭제하는 코드
-
 // 데이터베이스 연결 설정
 $host = 'localhost';
 $dbname = 'user_db';

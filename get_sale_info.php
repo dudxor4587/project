@@ -9,27 +9,25 @@ $pass = '1234';
 // 상품의 ID 가져오기
 $user_id = $_SESSION['ID'];
 
+$viewed_products = isset($_SESSION['viewed']) ? $_SESSION['viewed'] : array();
+
 try {
     $conn = new mysqli($host, $user, $pass, $db);
     if ($conn->connect_errno) {
         throw new Exception("Failed to connect to MySQL: " . $conn->connect_error);
     }
 
-// 조회 여부를 상품별로 관리하기 위한 세션 변수
-$viewed_products = isset($_SESSION['viewed']) ? $_SESSION['viewed'] : array();
-
-// 현재 상품에 대한 조회 여부 확인
-if (!isset($viewed_products[$user_id])) {
-    // 조회수 증가
-    $stmt_update_view = $conn->prepare("UPDATE sale_table SET view = view + 1 WHERE ID = ?");
-    $stmt_update_view->bind_param('s', $user_id);
-    $stmt_update_view->execute();
-
-    // 현재 상품에 대한 조회 여부를 세션 변수에 저장
-    $viewed_products[$user_id] = true;
-    $_SESSION['viewed'] = $viewed_products;
-}
-
+    // 데이터가 있는지 확인
+    if (!isset($viewed_products[$user_id])) {
+        // 조회수 증가
+        $stmt_update_view = $conn->prepare("UPDATE sale_table SET view = view + 1 WHERE ID = ?");
+        $stmt_update_view->bind_param('s', $user_id);
+        $stmt_update_view->execute();
+        
+        // 현재 상품에 대한 조회 여부를 세션 변수에 저장
+        $viewed_products[$user_id] = true;
+        $_SESSION['viewed'] = $viewed_products;
+    }
 
     // sale_table에서 해당 user_id에 해당하는 데이터 조회
     $stmt = $conn->prepare("SELECT name, price, content, date, user_id, view FROM sale_table WHERE ID = ?");

@@ -34,10 +34,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     var priceElement = document.querySelector('.priceBox');
                     var contentElement = document.querySelector('.contentBox');
                     var imageContainer = document.querySelector('.image_box');
+                    var visitContainer = document.querySelector('.infoBox_bar2-visit');
+                    
                     // 이름, 가격, 내용을 가져와서 원하는 위치에 적용
                     nameElement.textContent = response.name;
                     priceElement.textContent = response.price.toString() + " 원";
                     contentElement.textContent = response.content;
+                    visitContainer.textContent = "조회 " + response.view + " 관심 " + response.like;
 
                     var infoImage = document.createElement('div');
                     infoImage.classList.add('infoImage');
