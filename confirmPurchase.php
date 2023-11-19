@@ -25,5 +25,13 @@ if ($conn->query($sql) === TRUE) {
     echo "Error updating record: " . $conn->error;
 }
 
+$delete_sql = "DELETE FROM like_table WHERE ID = $product_id";
+
+if ($conn->query($delete_sql) === TRUE) {
+    echo "Rows deleted successfully";
+} else {
+    echo "Error deleting rows: " . $conn->error;
+}
+
 $conn->close();
 ?>

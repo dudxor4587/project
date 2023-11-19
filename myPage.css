@@ -99,7 +99,20 @@ h2{
     font-weight: bold;
     
 }
-#addbtn:hover {
+.delete-button{
+    width: 40px;
+    height: 22px;
+    background-image: linear-gradient(90deg, rgba(255, 123, 0, 0.744), rgba(255, 0, 0, 0.718));
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+}
+#addbtn:hover, .delete-button:hover  {
     background-color: lightgrey;
 }
 .infobox{
@@ -126,7 +139,10 @@ h2{
     border-left: 2px solid lightgrey;
     overflow: auto;
 }
-.itembox::-webkit-scrollbar {
+.mybox{
+    overflow:auto;
+}
+.itembox::-webkit-scrollbar, .mybox::-webkit-scrollbar {
     display: none;
   }
 p{
@@ -201,15 +217,17 @@ p{
     width: 300px;
     height: 200px;
     overflow: auto;
-    background-color: rgb(227, 221, 221);
+    background-color: rgb(252, 166, 46, 0.8);
     display: none;
     padding:20px;
-}
+  }
 .keyword, .keyword2 {
     border-bottom:1px solid grey;
     margin-bottom:10px;
 }
-
+.keyword:hover {
+    background-color: rgb(220, 169, 74);
+}
 .keywordbox{
     border-top: 4px solid rgba(255, 68, 0, 0.837);
     padding: 10px;
