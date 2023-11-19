@@ -11,7 +11,9 @@ $conn = new mysqli($host, $user, $password, $database);
 if ($conn->connect_error) {
     die('MySQL 연결 실패: ' . $conn->connect_error);
 }
-
+if (isset($_SESSION['viewed'])) {
+    unset($_SESSION['viewed']);
+}
 // POST 데이터 가져오기
 $id = $_POST['id'];
 $pwd = $_POST['pwd'];
