@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', function() {
     };
     xhrKeywords.send();
 
-    // AJAX 요청으로 판매 내역 가져오기
+    // AJAX 요청으로 판매 내역/판매 완료 내역 가져오기
     var xhrSales = new XMLHttpRequest();
     xhrSales.open('GET', 'getSales.php', true);
     xhrSales.onreadystatechange = function() {
@@ -49,10 +49,11 @@ window.addEventListener('DOMContentLoaded', function() {
             var responseSales = JSON.parse(xhrSales.responseText);
             if (responseSales.success) {
                 var saleList = document.querySelector('.saleBox');
+                var saleDoneList = document.querySelector('.saledoneBox');
                 for (var i = 0; i < responseSales.sales.length; i++) {
                     var sale = responseSales.sales[i];
-
-                    // 상품 이미지를 가져와서 요소를 생성합니다.
+                    if(sale.isSale == 0){
+                    // (isSale이 0인경우) 상품 이미지를 가져와서 요소를 생성합니다.
                     var saleImage = document.createElement('div');
                     saleImage.classList.add('sale-image');
                     saleImage.style.backgroundImage = 'url(productImages/' + sale.image + ')';
@@ -65,7 +66,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                     // 상품 이미지와 제목을 감싸는 컨테이너 요소를 생성합니다.
                     var saleContainer = document.createElement('div');
-                    saleContainer.classList.add('sale-container');
+                    saleContainer.classList.add('product-container');
                     saleContainer.appendChild(saleImage);
                     saleContainer.appendChild(saleTitle);
                     // 상품 가격을 가져와서 요소를 생성합니다.
@@ -75,9 +76,38 @@ window.addEventListener('DOMContentLoaded', function() {
 
                     // 상품 컨테이너에 가격 요소를 추가합니다.
                     saleContainer.appendChild(salePrice);
+                    saleContainer.setAttribute("id", sale.ID);
 
                     // 상품 컨테이너를 상품 목록에 추가합니다.
-                    saleList.appendChild(saleContainer);
+                    saleList.appendChild(saleContainer);}
+                    else {
+                      // (isSale = 1인경우) 상품 이미지를 가져와서 요소를 생성합니다.
+                    var saleImage = document.createElement('div');
+                    saleImage.classList.add('sale-image');
+                    saleImage.style.backgroundImage = 'url(productImages/' + sale.image + ')';
+                    saleImage.style.backgroundSize = 'cover';
+
+                    // 상품 제목을 가져와서 요소를 생성합니다.
+                    var saleTitle = document.createElement('div');
+                    saleTitle.classList.add('sale-title');
+                    saleTitle.textContent = sale.name;
+
+                    // 상품 이미지와 제목을 감싸는 컨테이너 요소를 생성합니다.
+                    var saleContainer = document.createElement('div');
+                    saleContainer.classList.add('product-container');
+                    saleContainer.appendChild(saleImage);
+                    saleContainer.appendChild(saleTitle);
+                    // 상품 가격을 가져와서 요소를 생성합니다.
+                    var salePrice = document.createElement('div');
+                    salePrice.classList.add('sale-price');
+                    salePrice.textContent = sale.price + "원";
+
+                    // 상품 컨테이너에 가격 요소를 추가합니다.
+                    saleContainer.appendChild(salePrice);
+                    saleContainer.setAttribute("id", sale.ID);
+                    // 상품 컨테이너를 상품 목록에 추가합니다.
+                    saleDoneList.appendChild(saleContainer);
+                    }
                 }
             } else {
                 alert("판매 내역 가져오기에 실패했습니다.");
@@ -108,7 +138,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                     // 상품 이미지와 제목을 감싸는 컨테이너 요소를 생성합니다.
                     var interestContainer = document.createElement('div');
-                    interestContainer.classList.add('interest-container');
+                    interestContainer.classList.add('product-container');
                     interestContainer.appendChild(interestImage);
                     interestContainer.appendChild(interestTitle);
                     // 상품 가격을 가져와서 요소를 생성합니다.
@@ -118,6 +148,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
                     // 상품 컨테이너에 가격 요소를 추가합니다.
                     interestContainer.appendChild(interestPrice);
+                    interestContainer.setAttribute("id", interest.ID);
 
                     // 상품 컨테이너를 관심 내역 목록에 추가합니다.
                     interestList.appendChild(interestContainer);
@@ -128,6 +159,50 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     };
     xhrInterest.send();
+
+    var xhrPurchase = new XMLHttpRequest();
+    xhrPurchase.open('GET', 'getPurchase.php', true);
+    xhrPurchase.onreadystatechange = function() {
+        if (xhrPurchase.readyState === 4 && xhrPurchase.status === 200) {
+            var responsePurchase = JSON.parse(xhrPurchase.responseText);
+            if (responsePurchase.success) {
+                var purchaseList = document.querySelector('.purchaseBox');
+                for (var i = 0; i < responsePurchase.purchases.length; i++) {
+                    var Purchase = responsePurchase.purchases[i];
+                    // 상품 이미지를 가져와서 요소를 생성합니다.
+                    var PurchaseImage = document.createElement('div');
+                    PurchaseImage.classList.add('Purchase-image');
+                    PurchaseImage.style.backgroundImage = 'url(productImages/' + Purchase.image + ')';
+                    PurchaseImage.style.backgroundSize = 'cover';
+
+                    // 상품 제목을 가져와서 요소를 생성합니다.
+                    var PurchaseTitle = document.createElement('div');
+                    PurchaseTitle.classList.add('Purchase-title');
+                    PurchaseTitle.textContent = Purchase.name;
+
+                    // 상품 이미지와 제목을 감싸는 컨테이너 요소를 생성합니다.
+                    var PurchaseContainer = document.createElement('div');
+                    PurchaseContainer.classList.add('product-container');
+                    PurchaseContainer.appendChild(PurchaseImage);
+                    PurchaseContainer.appendChild(PurchaseTitle);
+                    // 상품 가격을 가져와서 요소를 생성합니다.
+                    var PurchasePrice = document.createElement('div');
+                    PurchasePrice.classList.add('Purchase-price');
+                    PurchasePrice.textContent = Purchase.price + "원";
+
+                    // 상품 컨테이너에 가격 요소를 추가합니다.
+                    PurchaseContainer.appendChild(PurchasePrice);
+                    PurchaseContainer.setAttribute("id", Purchase.ID);
+
+                    // 상품 컨테이너를 관심 내역 목록에 추가합니다.
+                    purchaseList.appendChild(PurchaseContainer);
+                }
+            } else {
+                alert("관심 내역 가져오기에 실패했습니다.");
+            }
+        }
+    };
+    xhrPurchase.send();
 
 });
 function updateKeywordCheck(keywordId) {
@@ -250,7 +325,37 @@ document.getElementById("bell").addEventListener("click", function(event) {
       alarmElement.style.display = "none";
     }
   });
+
+function handleClick(event) {
+    var clickedElement = event.target.closest('.product-container');
+    if (clickedElement) {
+      var productId = clickedElement.id;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.success) {
+              // user_id와 ID가 일치하는 경우
+              window.location.href = "infoPage(sale).html";
+            } else {
+              // user_id와 ID가 일치하지 않는 경우
+              window.location.href = "infoPage.html";
+            }
+          } else {
+            console.error("AJAX request failed with status: " + xhr.status);
+          }
+        }
+      };
   
-  
-  
+      xhr.open("POST", "check_sale_info.php", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      xhr.send("id=" + productId);
+    }
+  };
+
+document.querySelector('.saleBox').addEventListener("click", handleClick);
+document.querySelector('.saledoneBox').addEventListener("click", handleClick);
+document.querySelector('.interestBox').addEventListener("click", handleClick);
+document.querySelector('.purchaseBox').addEventListener("click", handleClick);
 

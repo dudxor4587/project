@@ -62,7 +62,7 @@ p{
     height: 50px;
 
 }
-.sale-image, .interest-image {
+.sale-image, .interest-image , .Purchase-image{
     margin:30px 30px auto 30px;
     width: 100px;
     height: 130px;
@@ -81,7 +81,7 @@ p{
     margin: auto 30px 30px 30px;
     font-weight: bolder;
 }
-.saleBox, .interestBox {
+.saleBox, .interestBox .purchaseBox{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
