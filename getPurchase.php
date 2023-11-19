@@ -14,7 +14,9 @@ try {
     }
     $loggedInUserID = $_SESSION['user_id'];
     // 상품 정보를 가져오는 SQL 쿼리를 작성합니다.
-    $sql = "SELECT st.name, st.ID, st.isSale, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.id ORDER BY it.id ASC LIMIT 1) AS product_image, st.price FROM sale_table st WHERE st.user_id = '$loggedInUserID'";
+
+    $sql = "SELECT st.name, st.ID, st.isSale, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.id ORDER BY it.id ASC LIMIT 1) AS product_image, st.price FROM sale_table st WHERE st.purchase_user = '$loggedInUserID'";
+
 
 // SQL 쿼리 실행
 $result = $conn->query($sql);
@@ -26,11 +28,11 @@ if ($result) {
             'name' => $row['name'],
             'image' => $row['product_image'],
             'price' => $row['price'],
-            'isSale' => $row['isSale']  // isSale 값 추가
+            'isSale' => $row['isSale']  
         );
             $products[] = $product;
         }
-        $response = array('success' => true, 'sales' => $products);
+        $response = array('success' => true, 'purchases' => $products);
     } else {
         throw new Exception("Error executing query: " . $conn->error);
     }

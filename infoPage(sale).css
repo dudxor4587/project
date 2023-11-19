@@ -330,3 +330,27 @@ h2{
     margin-top:4px;
     overflow: auto;
 }
+#alarm {
+    border: 2px ridge;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 45px;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(227, 221, 221);
+    display: none;
+    padding:20px;
+  }
+  .keyword, .keyword2 {
+    border-bottom:1px solid grey;
+    margin-bottom:10px;
+}
+.keyword:hover {
+    background-color: lightgrey;
+}
+.infoBox_bar2-visit{
+    font-size:12px;
+}

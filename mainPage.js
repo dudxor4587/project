@@ -122,10 +122,15 @@ document.querySelector('.product_box').addEventListener("click", function(event)
         if (xhr.readyState === XMLHttpRequest.DONE) {
           if (xhr.status === 200) {
             var response = JSON.parse(xhr.responseText);
-            if (response.success) {
+            if (response.message == "login") {
               // user_id와 ID가 일치하는 경우
+               window.location.href = "infoPage(logout).html"
+              } 
+              else if(response.success) {
               window.location.href = "infoPage(sale).html";
-            } else {
+             
+            }
+            else{
               // user_id와 ID가 일치하지 않는 경우
               window.location.href = "infoPage.html";
             }
@@ -147,3 +152,6 @@ document.getElementById("login").addEventListener("click", function(){
 document.getElementById("signin").addEventListener("click", function(){
     window.location.href = "signinPage.html";
 });
+document.getElementById("logo").addEventListener("click",function(){
+  window.location.href = "mainPage.html";
+})
