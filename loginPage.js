@@ -15,7 +15,12 @@ document.getElementById("submit").addEventListener("click", function(event){
             var response = JSON.parse(xhr.responseText);
             if (response.success) {
                 // 로그인 성공 시 처리
-                window.location.href="mainPage(login).html";
+                if(response.redirect){
+                    window.location.href="adminPage.html";
+                }
+                else{
+                    window.location.href="mainPage(login).html";
+                }
                 // 로그인 성공 후 페이지 이동 또는 추가 동작 수행
             } else {
                 // 로그인 실패 시 처리
