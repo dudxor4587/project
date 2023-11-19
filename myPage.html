@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/493cc16663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="myPage.css">
     <title>Title</title>
 </head>
+
 <body>
-<div id="alarm" style="display:none;">
-</div>
-<div class="containerbox">
+    <div id="alarm" style="display:none;">
+    </div>
+
+    <div class="title-box">
+        <h2><i class="fa-solid fa-store"></i> Market Hub</h2>
+    </div>
+
     <div class="sub">
         <i class="fa-regular fa-bell fa-xl" id="bell"></i>
         <input type="button" id="logout" value="로그아웃">
@@ -19,42 +25,50 @@
         <div class="mybox">
             <div class="infobox">
                 <!--닉네임과 활동지역, 사진은 js로 구현-->
-                <div class="nickname"></div> <!-- 유저 닉네임을 표시할 요소 -->
                 <div class="user-image"></div> <!-- 유저 사진을 담을 요소 -->
+                <div class="nickname"></div> <!-- 유저 닉네임을 표시할 요소 -->
+                <div class="location">
+                </div>
             </div>
-            <div class = "location">
-                
-            </div>
+
             <div class="keywordbox">
                 관심 키워드<br>
-                <input type="text" id="keyword" placeholder="키워드를 입력해주세요."> <input type="button" id="addbtn" value="추가">
+                <input type="text" id="keyword" placeholder="키워드를 입력해주세요.">
+                <input type="button" id="addbtn" value="추가">
             </div>
+            <br><br>
+            <div>
+                <div class="myPageTxt">My page</div>
+                <i class="fa-solid fa-house-user" id="icon"></i>
+            </div>
+
         </div>
         <div class="itembox">
             <div class="interest">
-                <p>[관심 내역]</p>
+                <p class="interestText">[관심 내역]</p>
                 <div class="interestBox">
-                    
+
                 </div>
             </div>
             <div class="sale">
-                <p>[판매중인 내역]</p>
+                <p class="saleText">[판매중인 내역]</p>
                 <div class="saleBox">
-                    
+
                 </div>
             </div>
             <div class="purchase">
-                <p>[구매 내역]</p>
+                <p class="purchaseText">[구매 내역]</p>
             </div>
             <div class="sale-done">
-                <p>[판매완료 내역]</p>
+                <p class="sale-doneText">[판매완료 내역]</p>
                 <div class="saledoneBox">
-                    
+
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script type="text/javascript" src="myPage.js"></script>
+
+    <script type="text/javascript" src="myPage.js"></script>
 </body>
+
 </html>

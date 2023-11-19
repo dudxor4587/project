@@ -286,7 +286,7 @@ h2{
     border: 1px solid gray;
     justify-content: center;
     border-radius: 25%;
-    margin-top: 10px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 .user-info{
@@ -296,15 +296,17 @@ h2{
     margin-top: 5px;
     margin-bottom: 13px;
     width: 250px;
-    height: 200px;
+    height: 230px;
     padding: 5px;
-    border-bottom: 4px solid rgba(255, 68, 0, 0.837);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.833);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.226); 
 }
 .nickname{
     font-size:35px;
     font-weight: bolder;
     margin: auto;
-    color: white;
+    margin-top: 5px;
 }
 
 .S_F{
