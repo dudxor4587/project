@@ -19,8 +19,7 @@ $pwd = $_POST['pwd'];
 // 입력된 아이디와 비밀번호를 데이터베이스와 비교
 if($id === "admin" && $pwd === "admin"){
     // 관리자 로그인인 경우
-    header("Location: adminPage.html");
-    exit;
+    $response = array('success' => true, 'redirect' => 'adminPage.html');
 } else {
     $sql = "SELECT * FROM user_table WHERE user_id = '$id' AND user_pw = '$pwd'";
     $result = $conn->query($sql);
