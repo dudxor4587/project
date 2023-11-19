@@ -359,3 +359,6 @@ document.querySelector('.saledoneBox').addEventListener("click", handleClick);
 document.querySelector('.interestBox').addEventListener("click", handleClick);
 document.querySelector('.purchaseBox').addEventListener("click", handleClick);
 
+document.getElementById("logo").addEventListener("click",function(){
+  window.location.href = "mainPage(login).html";
+})

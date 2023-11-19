@@ -124,7 +124,11 @@ h2{
 }
 .itembox{
     border-left: 2px solid lightgrey;
+    overflow: auto;
 }
+.itembox::-webkit-scrollbar {
+    display: none;
+  }
 p{
     font-size:25px;
 }
@@ -160,7 +164,7 @@ p{
     margin-bottom: 3px;
 }
 
-.sale-image, .interest-image .Purchase-image {
+.sale-image, .interest-image, .Purchase-image {
     margin:30px 30px auto 30px;
     width: 100px;
     height: 130px;
@@ -172,10 +176,10 @@ p{
     flex-direction: column;
     min-height: 150px;
 }
-.sale-title, .interest-title {
+.sale-title, .interest-title, .Purchase-title {
     margin: 10px 30px auto 30px;
 }
-.sale-price, .interest-price, .purchase-price{
+.sale-price, .interest-price, .Purchase-price{
     margin: auto 30px 30px 30px;
     font-weight: bolder;
 }
