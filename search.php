@@ -22,7 +22,7 @@ try {
     $sql = "SELECT st.name, st.ID, (SELECT it.product_image FROM image_table it WHERE it.product_id = st.id ORDER BY it.id ASC LIMIT 1) AS product_image, st.price, ut.location
             FROM sale_table st
             INNER JOIN user_table ut ON st.user_id = ut.user_id
-            WHERE 1=1";
+            WHERE isSale=0";
 
     // 검색어가 있는 경우 검색 조건에 추가합니다.
     if (!empty($search)) {

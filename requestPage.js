@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', function() {
               var response = JSON.parse(xhr.responseText);
               if (response.success) {
                   // 상품의 이름을 가져와서 적용
-                  var nameElement = document.querySelector('#product');  // 'product'이라는 id를 가진 HTML 요소가 있다고 가정
+                  var nameElement = document.querySelector('h1');  // 'product'이라는 id를 가진 HTML 요소가 있다고 가정
                   nameElement.textContent = response.name;
               } else {
                   console.error('Failed to fetch the product data');
@@ -121,3 +121,30 @@ document.getElementById("bell").addEventListener("click", function(event) {
 document.getElementById("mypage").addEventListener("click", function(){
     window.location.href = "myPage.html";
 });
+document.getElementById("submit").addEventListener("click", function(event) {
+    event.preventDefault();
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if(response.success){
+                alert("신청이 완료되었습니다.");
+            }
+            else{
+                alert("이미 구매신청 된 게시물입니다.");
+            }
+            window.location.href = "infoPage.html";
+        } else {
+          console.error('Failed to send the request: ' + xhr.status);
+        }
+      }
+    };
+    xhr.open('POST', 'request.php', true); // PHP 파일의 경로를 적절히 수정해 주세요.
+    xhr.send();
+  });
+
+  document.getElementById("logo").addEventListener("click",function(){
+    window.location.href = "mainPage(login).html";
+  })
+  

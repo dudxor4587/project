@@ -340,16 +340,16 @@ h2{
     width: 300px;
     height: 200px;
     overflow: auto;
-    background-color: rgb(227, 221, 221);
+    background-color: rgb(252, 166, 46, 0.8);
     display: none;
     padding:20px;
   }
-  .keyword, .keyword2 {
+.keyword, .keyword2 {
     border-bottom:1px solid grey;
     margin-bottom:10px;
 }
 .keyword:hover {
-    background-color: lightgrey;
+    background-color: rgb(220, 169, 74);
 }
 .infoBox_bar2-visit{
     font-size:12px;

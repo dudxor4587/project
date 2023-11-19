@@ -21,21 +21,35 @@ $result = $conn->query("SELECT buy_id FROM request_table WHERE ID = $current_pro
 // 구매자 정보 목록
 $buyer_infos = array();
 
-while($row = $result->fetch_assoc()) {
-    $buyer_id = $row['buy_id'];
-    $buyer_result = $conn->query("SELECT name FROM user_table WHERE user_id = '$buyer_id'");
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $buyer_id = $row['buy_id'];
+        $buyer_result = $conn->query("SELECT name FROM user_table WHERE user_id = '$buyer_id'");
 
-    if ($buyer_row = $buyer_result->fetch_assoc()) {
-        // 사용자 ID와 이름을 콤마로 구분하여 저장
-        $buyer_info = $buyer_id . ',' . $buyer_row['name'];
-        $buyer_infos[] = $buyer_info;
+        if ($buyer_row = $buyer_result->fetch_assoc()) {
+            // 사용자 ID와 이름을 콤마로 구분하여 저장
+            $buyer_info = $buyer_id . ',' . $buyer_row['name'];
+            $buyer_infos[] = $buyer_info;
+        }
     }
 }
 
 // 세션에 구매자 정보 목록 저장
 $buyer_infos_string = implode(';', $buyer_infos);
 $_SESSION['buyer_infos'] = $buyer_infos_string;
-echo $buyer_infos_string;
+
+// 응답 데이터 설정
+$response = array();
+if ($result->num_rows > 0) {
+    $response['success'] = true;
+    $response['buyer_infos'] = $buyer_infos_string;
+} else {
+    $response['success'] = false;
+}
+
+// 응답 데이터 출력
+echo json_encode($response);
 
 $conn->close();
+
 ?>

@@ -89,7 +89,7 @@ h3{
     100% { transform: scale(1); }
 }
 
-.bell, #logout{
+#bell, #logout{
     margin-right: 30px;
 }
 
@@ -258,4 +258,25 @@ h3{
     50% { transform: translateX(-2px); }
     75% { transform: translateX(1px); }
     100% { transform: translateX(-1px); }
+}
+#alarm {
+    border: 2px ridge;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 45px;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(252, 166, 46, 0.8);
+    display: none;
+    padding:20px;
+  }
+.keyword, .keyword2 {
+    border-bottom:1px solid grey;
+    margin-bottom:10px;
+}
+.keyword:hover {
+    background-color: rgb(220, 169, 74);
 }

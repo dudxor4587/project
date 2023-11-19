@@ -20,26 +20,58 @@ window.addEventListener('DOMContentLoaded', function() {
     xhr.send();
 
     // AJAX 요청으로 사용자의 키워드 가져오기
-    var xhrKeywords = new XMLHttpRequest();
-    xhrKeywords.open('GET', 'getKeywords.php', true);
-    xhrKeywords.onreadystatechange = function() {
-        if (xhrKeywords.readyState === 4 && xhrKeywords.status === 200) {
-            var responseKeywords = JSON.parse(xhrKeywords.responseText);
-            if (responseKeywords.success) {
-                var keywordList = document.querySelector(".keywordbox");
-                for (var i = 0; i < responseKeywords.keywords.length; i++) {
-                    var keyword = responseKeywords.keywords[i];
-                    var keywordElement = document.createElement("div");
-                    keywordElement.classList.add("keyword-list");
-                    keywordElement.textContent = "#" + keyword;
-                    keywordList.appendChild(keywordElement);
-                }
-            } else {
-                alert("키워드 가져오기에 실패했습니다.");
-            }
-        }
-    };
-    xhrKeywords.send();
+  var xhrKeywords = new XMLHttpRequest();
+  xhrKeywords.open('GET', 'getKeywords.php', true);
+  xhrKeywords.onreadystatechange = function() {
+      if (xhrKeywords.readyState === 4 && xhrKeywords.status === 200) {
+          var responseKeywords = JSON.parse(xhrKeywords.responseText);
+          if (responseKeywords.success) {
+              var keywordList = document.querySelector(".keywordbox");
+              for (var i = 0; i < responseKeywords.keywords.length; i++) {
+                  var keyword = responseKeywords.keywords[i];
+                  var keywordElement = document.createElement("div");
+                  keywordElement.classList.add("keyword-list");
+                  keywordElement.textContent = "#" + keyword;
+
+                  var buttonElement = document.createElement("button");
+                  buttonElement.classList.add("delete-button");
+                  buttonElement.textContent = "삭제";
+                  buttonElement.dataset.keyword = keyword;
+                  buttonElement.addEventListener("click", function(event) {
+                      var keyword = event.target.dataset.keyword;
+                      deleteKeyword(keyword);
+                  });
+
+                  keywordElement.appendChild(buttonElement);
+                  keywordList.appendChild(keywordElement);
+              }
+          } else {
+              alert("키워드 가져오기에 실패했습니다.");
+          }
+      }
+  };
+  xhrKeywords.send();
+
+  // 키워드 삭제 함수
+  function deleteKeyword(keyword) {
+      var xhrDeleteKeyword = new XMLHttpRequest();
+      xhrDeleteKeyword.open('POST', 'deleteKeyword.php', true);
+      xhrDeleteKeyword.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhrDeleteKeyword.onreadystatechange = function() {
+          if (xhrDeleteKeyword.readyState === 4 && xhrDeleteKeyword.status === 200) {
+              var responseDeleteKeyword = JSON.parse(xhrDeleteKeyword.responseText);
+              if (responseDeleteKeyword.success) {
+                  alert("키워드가 삭제되었습니다.");
+                  location.reload();
+              } else {
+                  alert("키워드 삭제에 실패했습니다.");
+                  location.reload();
+              }
+          }
+      };
+      xhrDeleteKeyword.send("keyword=" + encodeURIComponent(keyword));
+  }
+
 
     // AJAX 요청으로 판매 내역/판매 완료 내역 가져오기
     var xhrSales = new XMLHttpRequest();
@@ -107,6 +139,10 @@ window.addEventListener('DOMContentLoaded', function() {
                     saleContainer.setAttribute("id", sale.ID);
                     // 상품 컨테이너를 상품 목록에 추가합니다.
                     saleDoneList.appendChild(saleContainer);
+                    saleContainer.addEventListener("click", function(event){
+                      alert("판매 완료된 게시글입니다.");
+                      window.location.href = "myPage.html";
+                    });
                     }
                 }
             } else {
@@ -196,9 +232,13 @@ window.addEventListener('DOMContentLoaded', function() {
 
                     // 상품 컨테이너를 관심 내역 목록에 추가합니다.
                     purchaseList.appendChild(PurchaseContainer);
+                    PurchaseContainer.addEventListener("click", function(event){
+                      alert("판매 완료된 게시글입니다.");
+                      window.location.href = "myPage.html";
+                    });
                 }
             } else {
-                alert("관심 내역 가져오기에 실패했습니다.");
+                alert("구매 내역 가져오기에 실패했습니다.");
             }
         }
     };
