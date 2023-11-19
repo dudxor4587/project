@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/493cc16663.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="mainPage(login).css">
     <title>Title</title>
 </head>
+
 <body>
-<div class="sub">
-    <i class="bell fa-regular fa-bell fa-xl"></i>
-    <input type="button" id="logout" value="로그아웃">
-    <input type="button" id="mypage" value="마이페이지">
-</div>
-<div class="nickname">
-</div>
-<div class="mainBox">
-    <select class="select">
-        <option value="" selected disabled hidden>지역을 선택해주세요</option>
-    </select>
-    <input type="text" id="search" placeholder="검색어">
-    <input type="text" id="min" placeholder="최소 가격"> ~
-    <input type="text" id="max" placeholder="최대 가격">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="button" id="post" value="게시글 작성">
-</div>
-<script type="text/javascript" src="mainPage(login).js"></script>
+    <div id="alarm" style="display:none;">
+    </div>
+
+    <div class="title-box">
+        <h2 id="logo"><i class="fa-solid fa-store"></i> Market Hub</h2>
+    </div>
+
+    <div class="sub">
+        <i class="fa-regular fa-bell fa-xl" id="bell"></i>
+        <input type="button" id="logout" value="로그아웃">
+        <input type="button" id="mypage" value="마이페이지">
+    </div>
+
+    <div class="main-box">
+        <div class="user-box">
+            <div class="user-info">
+                <div class="user-image"></div> <!-- 유저 사진을 담을 요소 -->
+                <div class="nickname"></div> <!-- 유저 닉네임을 표시할 요소 -->
+            </div>
+            <br>
+            <div class="text1">Welcome!</div>
+            <br>
+            <div class="S_F">
+                <div class="text2">Search<br>&<br>Find</div>
+                <i class="fa-solid fa-cart-plus"></i>
+            </div>
+        </div>
+
+
+        <div class="wrap-box">
+            <div class="mainBox">
+                <div class="input-box">
+                    <select class="select" id="locationSelect">
+                        <option value="all" selected>전체</option>
+                        <option value="seoul">서울</option>
+                        <option value="incheon">인천</option>
+                        <option value="daejeon">대전</option>
+                        <option value="gwangju">광주</option>
+                        <option value="busan">부산</option>
+                        <option value="daegu">대구</option>
+                        <option value="ulsan">울산</option>
+                    </select>
+
+                    <input type="text" id="search" placeholder="검색어">
+                    <input type="text" id="min" placeholder="최소 가격"> ~
+                    <input type="text" id="max" placeholder="최대 가격">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="button" id="post" value="게시글 작성">
+                </div>
+            </div>
+
+            <div class="productShow-box">
+                <div class="product_box">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="mainPage(login).js"></script>
 </body>
+
 </html>

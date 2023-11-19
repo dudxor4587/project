@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost'; // 데이터베이스 호스트
 $user = 'root'; // 데이터베이스 사용자 이름
-$password = '23d141531!'; // 데이터베이스 비밀번호
+$password = '1234'; // 데이터베이스 비밀번호
 $database = 'user_db'; // 데이터베이스 이름
 
 $conn = new mysqli($host, $user, $password, $database);
@@ -16,13 +16,29 @@ $pwd = $_POST['pwd'];
 $local = $_POST['local'];
 $nickname = $_POST['nickname'];
 
-// SQL 쿼리 실행하여 데이터베이스에 저장
-$sql = "INSERT INTO user_table (user_id, user_pw, location, name) VALUES ('$id', '$pwd', '$local', '$nickname')";
+// 아이디 중복 체크
+$checkQuery = "SELECT * FROM user_table WHERE user_id = '$id'";
+$result = $conn->query($checkQuery);
+if ($result->num_rows > 0) {
+    echo "duplicate";
+    exit;  // 스크립트 종료
+}
+
+// 이미지 업로드
+if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    $uploadDir = 'userImages/';
+    $uploadFile = $uploadDir . basename($id . '.png');
+    move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+    $sql = "INSERT INTO user_table (user_id, user_pw, location, name, user_image) VALUES ('$id', '$pwd', '$local', '$nickname', '$id.png')";
+} else {
+    $sql = "INSERT INTO user_table (user_id, user_pw, location, name, user_image) VALUES ('$id', '$pwd', '$local', '$nickname', '기본프로필.png')";
+}
 
 if ($conn->query($sql) === TRUE) {
-    echo "회원가입이 완료되었습니다.";
+    echo "success";
 } else {
     echo "오류: " . $sql . "<br>" . $conn->error;
 }
+
 $conn->close();
 ?>

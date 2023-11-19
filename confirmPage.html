@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,42 @@
     <link rel="stylesheet" href="confirmPage.css">
     <script src="https://kit.fontawesome.com/493cc16663.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class = "container-fluid">
-        <div class = "row">
-        <div id = "box0">
-            <i class="bell fa-regular fa-bell fa-xl"></i>
-            <button id = "logout">로그아웃</button>
-            <button id = "mypage">마이페이지</button>
-        </div></div>
-        <div id = "item">
-            <h1><!-- 구매할 제품 이름 -->구매할 제품 이름</h1>
+    <div id="alarm" style="display:none;">
+    </div>
+    <div class="title-box">
+        <h2 id="logo"><i class="fa-solid fa-store"></i> Market Hub</h2>
+    </div>
+
+    <div class="sub">
+        <i class="bell fa-regular fa-bell fa-xl" id="bell"></i>
+        <input type="button" id="logout" value="로그아웃">
+        <input type="button" id="mypage" value="마이페이지">
+    </div>
+
+    <div class="main-box">
+        <div class="text-box">
+            <div class="text-box_text">
+                <div id="item">
+                    <h1 id = "product"><!-- 구매할 제품 이름 -->구매할 제품 이름</h1>
+                </div>
+                <div id="box1">
+                    <h1>Make your decision!</h1>
+                </div>
+
+                <i class="fa-regular fa-handshake"></i>
+            </div>
         </div>
-        <div id = "box1">
-            <h1>구매자 확정</h1>  <br><br>
-        </div>
-        <div id = "buyer">
-            <p class = "request"><!--구매자 이름--></p>
-            <input class = "requestbutton" type = "submit" id = "submit" value = "OK"><br><br>
-            <p class = "request"><!--구매자 이름--></p>
-            <input class = "requestbutton" type = "submit" id = "submit" value = "OK"><br><br>
-            <p class = "request"><!--구매자 이름--></p>
-            <input class = "requestbutton" type = "submit" id = "submit" value = "OK"><br><br>
-            <!-- js에서 구매자 리스트를 p class = "request" 에 저장, div id = "buyer" 에 appendchild하는느낌 ?-->
+
+        <div class="buyer-box">
+            <div id="buyer">
+                <!-- js에서 구매자 리스트를 p class = "request" 에 저장, div id = "buyer" 에 appendchild하는느낌 ?-->
+            </div>
         </div>
     </div>
-    
-    
+
+    <script src="confirmPage.js"></script>
 </body>
+
 </html>

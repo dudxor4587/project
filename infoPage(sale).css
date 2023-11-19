@@ -1,0 +1,356 @@
+
+body {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(0deg, rgba(255, 170, 0, 0.455), rgba(255, 255, 255, 0.718));
+}
+
+.title-box{
+    position: absolute;
+    top: -15px;
+    left:10px; 
+}
+
+h2{
+    color: rgb(255, 81, 0) ;
+    font-size: 30px;
+    
+}
+
+.sub {
+    text-align: right;
+    margin-top:20px;
+    color: rgb(255, 81, 0);
+    margin-right: 20px;
+}
+#logout, #mypage {
+    border:none;
+    background-color: transparent;
+    font-weight: bolder;
+    font-size:15px;
+    color: rgb(255, 81, 0);
+}
+#logout:hover, #mypage:hover {
+    box-shadow: 0px 0px 0px 5px rgba(255, 166, 0, 0.818);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.sub i:hover{
+    animation: vibrate 0.3s ease infinite;
+}
+
+@keyframes vibrate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+.bell, #logout{
+    margin-right: 30px;
+}
+
+.main-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.infoBox{
+    height: 560px;
+    width: 500px;
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    margin-top: 30px;
+}
+
+.chatBox{
+    height: 560px;
+    width: 550px;
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chatBox_list{
+    width: 500px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.093);
+    margin-top: 10px;
+    margin-bottom: 8px;
+    border-radius: 10px;    
+    border: 4px solid rgba(102, 102, 102, 0.608);
+}
+
+#chat input[type='submit']{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background-image: linear-gradient(90deg, rgba(255, 123, 0, 0.744), rgba(255, 0, 0, 0.718));
+    cursor: pointer;
+    border-radius: 25px;
+    border-color: inherit;
+    text-align: center;
+    cursor: pointer; 
+    color: white;
+}
+
+#submit {
+    width: 490px;
+    height: 50px;
+    font-size: 20px;
+}
+
+#submit:hover{
+    box-shadow: 0px 0px 0px 5px rgba(255, 166, 0, 0.337);
+    transition: box-shadow 0.3s ease-in-out;
+    animation: vibrate 0.3s ease ;
+}
+
+@keyframes vibrate {
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    75% { transform: translateX(1px); }
+    100% { transform: translateX(-1px); }
+}
+
+.infoBox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoBox_img{
+    width: 480px;
+    height: 300px;
+    margin-top: 10px;
+    border: 4px solid rgba(128, 128, 128, 0.452); 
+    border-radius: 20px;
+}
+
+.infoBox_bar1{
+    border-bottom: 4px solid rgba(128, 128, 128, 0.419);
+    width: 460px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoBox_bar1-saler{
+    width: 180px;
+}
+
+.infoBox_bar1-saleBtn{
+    display: flex;
+    align-items: center;
+}
+
+.infoBox_bar1-saleBtn i{
+    margin-right: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+}
+
+#sell input[type='submit']{
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(90deg, rgba(194, 194, 194, 0.744), rgba(81, 81, 81, 0.718));
+    cursor: pointer;
+    border-radius: 10px;
+    border-color: inherit;
+    text-align: center;
+    cursor: pointer; 
+    height: 40px;
+    width: 80px;
+    font-weight: bolder;
+    color:white;
+    margin-right: -7px;
+    font-size: 15px;
+}
+
+#textarea{
+    width: 490px;
+    height: 80px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    border: 2px solid gray;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+#sellBtn{
+    text-align: right;
+}
+
+.infoBox_bar2{
+    border-bottom: 4px solid rgba(128, 128, 128, 0.419);
+    width: 460px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoBox_info{
+    border-bottom: 4px solid rgba(128, 128, 128, 0.419);
+    width: 460px;
+    height: 90px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.infoBox_img {
+    display: flex;
+    justify-content: center;
+}
+.infoBox_img .product {
+    margin-top:10px;
+    width: 280px;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#rightButton,
+#leftButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: grey;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.infoBox_img {
+    position: relative;
+    width: 480px;
+    height: 300px;
+    margin-top: 10px;
+    border: 4px solid rgba(128, 128, 128, 0.452);
+    border-radius: 20px;
+}
+
+#rightButton {
+    right: 30px;
+}
+
+#leftButton {
+    left: 30px;
+}
+
+.comment-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    border:1px solid grey;
+}
+.chatBox_list{
+    padding:30px;
+}
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom:20px;
+    border-bottom: 1px groove lightgrey;
+    padding-bottom: 10px;
+}
+.comment-name {
+    display: flex;
+    flex-direction: row;
+}
+.comment-container2 {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+.comment-container2 .comment-name {
+    font-size:12px
+}
+.comment-date {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.infoBox1 {
+    display: flex;
+    flex-direction: row;
+}
+.infoImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-position: center;
+    border:1px solid grey;
+}
+.infoBox_info {
+    display: flex;
+    flex-direction: column;
+}
+.contentBox {
+    display: flex;
+    flex-grow:1;
+    margin-top:20px;
+}
+.priceBox {
+    font-size:20px;
+    font-weight: bolder;
+}
+.info-container {
+    display: flex;
+    flex-direction: row;
+}
+.name-container {
+    margin-left: 10px;
+}
+.date {
+    margin-top:5px;
+    width: 200px;
+}
+.infoBox_bar2-name {
+    margin-top:auto;
+    font-size: 25px;
+}
+.contentBox{
+    margin-top:4px;
+    overflow: auto;
+}
+#alarm {
+    border: 2px ridge;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    right: 0px;
+    top: 45px;
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(252, 166, 46, 0.8);
+    display: none;
+    padding:20px;
+  }
+.keyword, .keyword2 {
+    border-bottom:1px solid grey;
+    margin-bottom:10px;
+}
+.keyword:hover {
+    background-color: rgb(220, 169, 74);
+}
+.infoBox_bar2-visit{
+    font-size:12px;
+}
