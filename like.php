@@ -16,9 +16,9 @@ $user_id = $_SESSION['user_id'];
 $id = $_SESSION['ID'];
 
 // 데이터베이스 연결
-$servername = "localhost";
-$username = "root";
-$password = "1234";
+$servername = "web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com";
+$username = "admin";
+$password = "12345678";
 $dbname = "user_db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

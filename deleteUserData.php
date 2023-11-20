@@ -1,9 +1,9 @@
 <?php
 // 데이터베이스 연결 설정
-$host = 'localhost';
+$host = 'web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com';
 $dbname = 'user_db';
-$username = 'root';
-$password = '1234';
+$username = 'admin';
+$password = '12345678';
 
 $user_id = $_POST['user_id'];
 

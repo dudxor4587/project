@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-$host = 'localhost';
+$host = 'web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com';
 $db = 'user_db';
-$user = 'root';
-$pass = '1234';
+$user = 'admin';
+$pass = '12345678';
 // 데이터베이스 연결
 $conn = new mysqli($host, $user, $pass, $db);
 

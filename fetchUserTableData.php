@@ -2,10 +2,10 @@
 // user_table에서 데이터를 가져와서 JSON 형식으로 반환하는 코드
 
 // 데이터베이스 연결 설정
-$host = 'localhost';
+$host = 'web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com';
 $dbname = 'user_db';
-$username = 'root';
-$password = '1234';
+$username = 'admin';
+$password = '12345678';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

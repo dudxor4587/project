@@ -1,10 +1,10 @@
 <?php
 session_start();
 // 데이터베이스 연결 설정
-$host = 'localhost';
+$host = 'web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com';
 $db = 'user_db';
-$user = 'root';
-$pass = '1234';
+$user = 'admin';
+$pass = '12345678';
 
 // 현재 사용자의 ID를 가져옵니다.
 $userId = $_SESSION['user_id'];

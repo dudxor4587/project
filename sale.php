@@ -1,10 +1,10 @@
 <?php
 session_start();
 // 데이터베이스 연결 설정
-$host = 'localhost';
+$host = 'web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com';
 $db = 'user_db';
-$user = 'root';
-$pass = '1234';
+$user = 'admin';
+$pass = '12345678';
 
 // POST 요청으로부터 입력된 값들 가져오기
 $title = $_POST['title'];

@@ -2,10 +2,10 @@
 session_start();
 
 // 데이터베이스 연결 설정
-$host = 'localhost';
+$host = 'web-db.cwszvyl8uzql.ap-southeast-2.rds.amazonaws.com';
 $db = 'user_db';
-$user = 'root';
-$pass = '1234';
+$user = 'admin';
+$pass = '12345678';
 
 // 세션에서 상품 ID와 현재 사용자 ID 가져오기
 $product_id = $_SESSION['ID']; // 상품 ID
