@@ -354,3 +354,9 @@ h2{
 .infoBox_bar2-visit{
     font-size:12px;
 }
+.chatBox_list{
+    overflow: auto;
+}
+.chatBox_list::-webkit-scrollbar {
+    display: none;
+  }
