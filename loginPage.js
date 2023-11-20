@@ -37,3 +37,7 @@ document.getElementById("submit").addEventListener("click", function(event){
 document.getElementById("logo").addEventListener("click",function(){
     window.location.href = "mainPage.html";
   })
+
+  document.getElementById("signup").addEventListener("click",function(){
+    window.location.href = "signinPage.html";
+  });
